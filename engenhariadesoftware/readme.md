@@ -18,3 +18,4 @@ O texto II fala que engenharia de software envolve não só escrever código, ma
 
 <h2>Diagramas de Classe UML</h2>
 
+![Diagrama](https://github.com/JkDeltaz/bertoti/blob/40f66905e6671a5ade851c199033b255df7bbb3d/engenhariadesoftware/Atividade%204%20-%20Eng%20de%20Software.png)
