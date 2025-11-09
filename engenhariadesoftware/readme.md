@@ -441,3 +441,6 @@ public class LivroTest {
 }
 ```
 
+<h2>(7) Diagramas de Classe UML</h2>
+
+![Diagrama](https://github.com/JkDeltaz/bertoti/blob/main/engenhariadesoftware/Atividade%204%20-%20Eng%20de%20Software.jpg)
