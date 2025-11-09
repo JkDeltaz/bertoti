@@ -444,3 +444,506 @@ public class LivroTest {
 <h2>(7) Diagramas de Classe UML</h2>
 
 ![Diagrama](https://github.com/JkDeltaz/bertoti/blob/main/engenhariadesoftware/Atividade%207%20Eng%20Software.jpg)
+
+<h2>(8) Códigos em Java</h2>
+
+```Java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cinema {
+
+    private String nome;
+    private String endereco;
+    private List<Sala> salas = new ArrayList<>();
+
+    public Cinema(String nome, String endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
+    }
+
+    public void addSala(Sala sala) {
+        salas.add(sala);
+    }
+
+    public List<Sala> getSalas() {
+        return salas;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+}
+```
+
+```Java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Sala {
+
+    private int numero;
+    private int capacidade;
+    private List<Sessao> sessoes = new ArrayList<>();
+
+    public Sala(int numero, int capacidade) {
+        this.numero = numero;
+        this.capacidade = capacidade;
+    }
+
+    public void addSessao(Sessao sessao) {
+        sessoes.add(sessao);
+    }
+
+    public List<Sessao> getSessoes() {
+        return sessoes;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(int capacidade) {
+        this.capacidade = capacidade;
+    }
+}
+```
+
+```Java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Sessao {
+
+    private String horario;
+    private Filme filme;
+    private Sala sala;
+    private List<Ingresso> ingressos = new ArrayList<>();
+
+    public Sessao(String horario, Filme filme, Sala sala) {
+        this.horario = horario;
+        this.filme = filme;
+        this.sala = sala;
+    }
+
+    public void venderIngresso(Ingresso ingresso) {
+        ingressos.add(ingresso);
+    }
+
+    public List<Ingresso> getIngressos() {
+        return ingressos;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public Filme getFilme() {
+        return filme;
+    }
+
+    public void setFilme(Filme filme) {
+        this.filme = filme;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+}
+```
+
+```Java
+public class Filme {
+
+    private String titulo;
+    private String genero;
+    private int duracaoMin;
+    private String classificacao;
+
+    public Filme(String titulo, String genero, int duracaoMin, String classificacao) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.duracaoMin = duracaoMin;
+        this.classificacao = classificacao;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getDuracaoMin() {
+        return duracaoMin;
+    }
+
+    public void setDuracaoMin(int duracaoMin) {
+        this.duracaoMin = duracaoMin;
+    }
+
+    public String getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
+    }
+}
+```
+
+```Java
+public class Ingresso {
+
+    private String codigo;
+    private double preco;
+    private Cliente cliente;
+
+    public Ingresso(String codigo, double preco, Cliente cliente) {
+        this.codigo = codigo;
+        this.preco = preco;
+        this.cliente = cliente;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+}
+```
+
+```Java
+public class Cliente {
+
+    private String nome;
+    private String cpf;
+
+    public Cliente(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+}
+```
+
+<h2>(9) Testes Automatizados</h2>
+
+```Java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CinemaTest {
+
+    private Cinema cinema;
+
+    @BeforeEach
+    void setUp() {
+        cinema = new Cinema("CineMax", "Rua das Flores, 100");
+    }
+
+    @Test
+    void testConstrutor() {
+        assertEquals("CineMax", cinema.getNome());
+        assertEquals("Rua das Flores, 100", cinema.getEndereco());
+        assertNotNull(cinema.getSalas());
+        assertTrue(cinema.getSalas().isEmpty());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        cinema.setNome("CinePlus");
+        cinema.setEndereco("Av. Central, 200");
+
+        assertEquals("CinePlus", cinema.getNome());
+        assertEquals("Av. Central, 200", cinema.getEndereco());
+    }
+
+    @Test
+    void testAddSala() {
+        Sala sala = new Sala(1, 100);
+        cinema.addSala(sala);
+
+        List<Sala> salas = cinema.getSalas();
+        assertEquals(1, salas.size());
+        assertTrue(salas.contains(sala));
+    }
+}
+```
+
+```Java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SalaTest {
+
+    private Sala sala;
+
+    @BeforeEach
+    void setUp() {
+        sala = new Sala(1, 120);
+    }
+
+    @Test
+    void testConstrutor() {
+        assertEquals(1, sala.getNumero());
+        assertEquals(120, sala.getCapacidade());
+        assertNotNull(sala.getSessoes());
+        assertTrue(sala.getSessoes().isEmpty());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        sala.setNumero(2);
+        sala.setCapacidade(80);
+
+        assertEquals(2, sala.getNumero());
+        assertEquals(80, sala.getCapacidade());
+    }
+
+    @Test
+    void testAddSessao() {
+        Filme filme = new Filme("Avatar", "Ficção", 180, "12+");
+        Sessao sessao = new Sessao("19:00", filme, sala);
+        sala.addSessao(sessao);
+
+        List<Sessao> sessoes = sala.getSessoes();
+        assertEquals(1, sessoes.size());
+        assertTrue(sessoes.contains(sessao));
+    }
+}
+```
+
+```Java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class SessaoTest {
+
+    private Sessao sessao;
+    private Filme filme;
+    private Sala sala;
+
+    @BeforeEach
+    void setUp() {
+        filme = new Filme("Matrix", "Ação", 136, "16+");
+        sala = new Sala(1, 100);
+        sessao = new Sessao("21:00", filme, sala);
+    }
+
+    @Test
+    void testConstrutor() {
+        assertEquals("21:00", sessao.getHorario());
+        assertEquals(filme, sessao.getFilme());
+        assertEquals(sala, sessao.getSala());
+        assertNotNull(sessao.getIngressos());
+        assertTrue(sessao.getIngressos().isEmpty());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        Filme novoFilme = new Filme("Interestelar", "Ficção", 169, "10+");
+        Sala novaSala = new Sala(2, 80);
+
+        sessao.setHorario("18:00");
+        sessao.setFilme(novoFilme);
+        sessao.setSala(novaSala);
+
+        assertEquals("18:00", sessao.getHorario());
+        assertEquals(novoFilme, sessao.getFilme());
+        assertEquals(novaSala, sessao.getSala());
+    }
+
+    @Test
+    void testVenderIngresso() {
+        Cliente cliente = new Cliente("Ana", "11122233344");
+        Ingresso ingresso = new Ingresso("A1", 25.0, cliente);
+        sessao.venderIngresso(ingresso);
+
+        List<Ingresso> ingressos = sessao.getIngressos();
+        assertEquals(1, ingressos.size());
+        assertTrue(ingressos.contains(ingresso));
+    }
+}
+```
+
+```Java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class FilmeTest {
+
+    private Filme filme;
+
+    @BeforeEach
+    void setUp() {
+        filme = new Filme("Inception", "Ficção", 148, "14+");
+    }
+
+    @Test
+    void testConstrutor() {
+        assertEquals("Inception", filme.getTitulo());
+        assertEquals("Ficção", filme.getGenero());
+        assertEquals(148, filme.getDuracaoMin());
+        assertEquals("14+", filme.getClassificacao());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        filme.setTitulo("Duna");
+        filme.setGenero("Aventura");
+        filme.setDuracaoMin(155);
+        filme.setClassificacao("12+");
+
+        assertEquals("Duna", filme.getTitulo());
+        assertEquals("Aventura", filme.getGenero());
+        assertEquals(155, filme.getDuracaoMin());
+        assertEquals("12+", filme.getClassificacao());
+    }
+}
+```
+
+```Java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class IngressoTest {
+
+    private Ingresso ingresso;
+    private Cliente cliente;
+
+    @BeforeEach
+    void setUp() {
+        cliente = new Cliente("Carlos", "55566677788");
+        ingresso = new Ingresso("B15", 30.0, cliente);
+    }
+
+    @Test
+    void testConstrutor() {
+        assertEquals("B15", ingresso.getCodigo());
+        assertEquals(30.0, ingresso.getPreco());
+        assertEquals(cliente, ingresso.getCliente());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        Cliente novoCliente = new Cliente("Marina", "99988877766");
+        ingresso.setCodigo("C10");
+        ingresso.setPreco(35.5);
+        ingresso.setCliente(novoCliente);
+
+        assertEquals("C10", ingresso.getCodigo());
+        assertEquals(35.5, ingresso.getPreco());
+        assertEquals(novoCliente, ingresso.getCliente());
+    }
+}
+```
+
+```Java
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClienteTest {
+
+    private Cliente cliente;
+
+    @BeforeEach
+    void setUp() {
+        cliente = new Cliente("Julia", "12345678900");
+    }
+
+    @Test
+    void testConstrutor() {
+        assertEquals("Julia", cliente.getNome());
+        assertEquals("12345678900", cliente.getCpf());
+    }
+
+    @Test
+    void testSettersAndGetters() {
+        cliente.setNome("Pedro");
+        cliente.setCpf("98765432100");
+
+        assertEquals("Pedro", cliente.getNome());
+        assertEquals("98765432100", cliente.getCpf());
+    }
+}
+```
