@@ -1,0 +1,15 @@
+# Atividades Desenvolvidas no Projeto PRO4TECH
+
+Durante o desenvolvimento do projeto PRO4TECH, atuei na implementação de funcionalidades relacionadas ao gerenciamento de projetos, integração com serviços externos e utilização de inteligência artificial para análise e recuperação de informações.
+
+Uma das atividades desenvolvidas foi a **integração do sistema com o LightRAG**, utilizando Python e FastAPI, com armazenamento vetorial e estrutura de grafo no PostgreSQL. Trabalhei na implementação do processo de indexação dos conhecimentos dos projetos, organizando e preparando informações como tecnologias utilizadas, épicos, features, PBIs, bugs e desenvolvedores. Esses dados são estruturados e enviados ao serviço de IA para armazenamento e posterior recuperação.
+
+Também trabalhei na **implementação da busca de projetos semelhantes utilizando inteligência artificial**. A funcionalidade tem como objetivo identificar projetos relacionados a partir das tecnologias utilizadas e das informações presentes em seus épicos, features e PBIs. Para isso, utilizei os embeddings gerados pelo modelo BGE-M3 e o armazenamento vetorial do LightRAG, realizando comparações por similaridade de cosseno. A proposta também contempla a utilização do modelo Qwen3 4B para gerar justificativas sobre as relações encontradas, apresentando evidências que contextualizam as recomendações.
+
+Outra parte do trabalho envolveu a **integração entre o backend desenvolvido em TypeScript e o serviço de IA em Python**, realizando a comunicação por meio de requisições HTTP. Também trabalhei na recuperação e organização dos dados utilizando Prisma e PostgreSQL, garantindo que os resultados da busca sejam associados aos projetos efetivamente cadastrados no sistema.
+
+Durante essa atividade, também analisei questões relacionadas ao desempenho da indexação e à recuperação dos embeddings, investigando problemas de disponibilidade dos vetores, consumo de memória e tempo de processamento. O objetivo foi melhorar a confiabilidade da comunicação entre os serviços e o aproveitamento dos recursos computacionais disponíveis.
+
+Além das funcionalidades relacionadas à inteligência artificial, trabalhei na especificação e implementação do **fluxo de exportação do backlog de projetos para o Azure Boards**, utilizando a API REST do Azure DevOps. Essa atividade envolve o mapeamento dos dados cadastrados no PRO4TECH para os tipos de Work Items compatíveis com a configuração do Azure DevOps, considerando a hierarquia entre épicos, features e PBIs. Também contempla a criação dos relacionamentos entre os itens, o tratamento de falhas parciais durante a exportação e a apresentação de um resumo dos registros exportados com sucesso.
+
+De modo geral, minhas atividades envolveram o desenvolvimento de funcionalidades no backend, integração entre diferentes tecnologias e serviços, manipulação de dados relacionais, aplicação de técnicas de recuperação semântica e comunicação com APIs externas. Essas implementações contribuíram para ampliar as funcionalidades do PRO4TECH e sua capacidade de integração e análise das informações dos projetos.
